@@ -35,3 +35,11 @@ app.post('/books', (req, res) => {
     books.push(req.body)
     res.status(201).json(req.body)
 })
+
+// # Delete from books where id = 2
+app.delete('/books/:id', (req, res) => {
+    const deletedIndex = books.findIndex(book => book.id === req.params.id)
+        //   #  books.splice(deletedIndex, 1)
+    delete books[deleteIndex];
+    res.status(200).json(req.body)
+})
