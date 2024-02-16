@@ -40,6 +40,6 @@ app.post('/books', (req, res) => {
 app.delete('/books/:id', (req, res) => {
     const deletedIndex = books.findIndex(book => book.id === req.params.id)
         //   #  books.splice(deletedIndex, 1)
-    delete books[deleteIndex];
-    res.status(200).json(req.body)
+    delete books[deletedIndex];
+    // res.status(200).json(req.body)
 })
