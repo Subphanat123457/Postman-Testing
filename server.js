@@ -2,7 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -21,6 +20,10 @@ app.get('/books', (req, res) => {
     res.json(books)
 })
 
+app.put('/books/:id', (req, res) => {
+    const updateIndex = books.findIndex(book => book.id === req.params.id)
+    res.json(Object.assign(books[updateIndex], req.body))
+})
 
 // Select * from books where id = 1?
 app.get('/books/:id', (req, res) => {
