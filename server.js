@@ -1,4 +1,10 @@
 const express = require('express')
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+
 const app = express()
 
 app.get('/', (req, res) => {
@@ -20,8 +26,6 @@ const books = require('./db')
 app.get('/books', (req, res) => {
     res.json(books)
 })
-
-
 
 // Insert into books (id,name) values ("3","Crazy horse")
 app.post('/books', (req, res) => {
